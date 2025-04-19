@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name='viewport' content = 'width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no'>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>EasterTime</title>
+    <style>
+        html{
+            background-color:black;
+            color:green;
+            font-family:"Courier New";
+            font-size:24px;
+            height:100%;
+            position:absolute;
+            margin: 0 auto;
+            width:100%;
+        }
+        body{
+            box-sizing: border-box;
+        }
+        .container{
+            text-align:center;
+            position:absolute;
+            height:100vh;
+            width:100%;
+            top:45%;
+            left:0;
+            right:0;
+        }
+        .start_hid{
+            display:none;
+        }
+        #bottomButton{
+            position:fixed;
+            bottom:0;
+            right:0;
+            left:0;
+            text-align:center;
+            padding:10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="first" class="container">
+        <p>
+            Loading E.B. Audio Log<span id="dots"></span>
+
+        </p>
+    </div>
+    <div id="second" class="start_hid container">
+        <p>
+            Transmission 2: April 20, 2025 at 4:45 a.m.
+        </p>
+        <audio controls>
+              <source src="Test.m4a" type="audio/mp4">
+        </audio>
+    </div>
+    <div id="bottomButton">
+        Next
+    </div>
+<script>
+    var dots = 0;
+
+$(document).ready(function() {
+    setInterval (type, 600);
+    setTimeout(function(){
+        $('#first').fadeOut('slow',function(){
+            $('#second').fadeIn('slow');
+        });
+    },3500);
+});
+
+function type() {
+    if(dots < 3) {
+        $('#dots').append('.');
+        dots++;
+    } else {
+        $('#dots').html('');
+        dots = 0;
+    }
+}
+</script>
+</body>
+</html>
